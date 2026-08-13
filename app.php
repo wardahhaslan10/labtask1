@@ -9,7 +9,6 @@ Academic Session: Session II : 2025/2026
 -->
 
 <?php
-
 // Function to calculate all required statistics from the input array.
 function calculateArrayStats($userInputs)
 {
@@ -67,5 +66,4 @@ $userInputs = [
 
 // Store the associative array returned by the function.
 $resultArray = calculateArrayStats($userInputs);
-
 ?>
