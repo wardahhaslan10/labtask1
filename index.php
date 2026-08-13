@@ -2,7 +2,6 @@
 
 // Include app.php to access the input and result arrays.
 include 'app.php';
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
