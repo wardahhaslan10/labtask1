@@ -5,7 +5,6 @@ include 'app.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +12,6 @@ include 'app.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
-
 </head>
 
 <body>
@@ -24,13 +22,9 @@ include 'app.php';
         <!-- Page heading -->
         <div class="text-center mb-5">
 
-            <h1 class="display-5 fw-bold">
-                String Array Analysis
-            </h1>
+            <h1 class="display-5 fw-bold">String Array Analysis</h1>
 
-            <p class="text-muted">
-                PHP Function and Array Processing
-            </p>
+            <p class="text-muted">PHP Function and Array Processing</p>
 
         </div>
 
@@ -40,9 +34,7 @@ include 'app.php';
 
             <div class="card-header bg-primary text-white">
 
-                <h2 class="h4 mb-0">
-                    Array Statistics
-                </h2>
+                <h2 class="h4 mb-0">Array Statistics</h2>
 
             </div>
 
@@ -52,13 +44,8 @@ include 'app.php';
 
                     <!-- Largest number of characters -->
                     <div class="col-md-6 col-lg-4">
-
                         <div class="stat-card">
-
-                            <h5>
-                                Largest Characters
-                            </h5>
-
+                            <h5>Largest Characters</h5>
                             <p>
                                 <?= $resultArray['largestCharacterCount']; ?>
                                 characters
@@ -74,17 +61,12 @@ include 'app.php';
 
                         <div class="stat-card">
 
-                            <h5>
-                                3rd Element Length
-                            </h5>
-
+                            <h5>3rd Element Length</h5>
                             <p>
                                 <?= $resultArray['thirdElementLength']; ?>
                                 characters
                             </p>
-
                         </div>
-
                     </div>
 
 
@@ -148,7 +130,6 @@ include 'app.php';
                 <div class="row g-3">
 
                     <?php
-
                     // Use foreach loop to display every element in the input array.
                     foreach ($userInputs as $index => $userInput) {
 
@@ -167,47 +148,30 @@ include 'app.php';
                                         Element <?= $index + 1; ?>
                                     </span>
 
-                                    <span class="badge bg-secondary">
-                                        <?= $characterCount; ?> characters
-                                    </span>
-
+                                    <span class="badge bg-secondary"><?= $characterCount; ?> characters</span>
                                 </div>
 
-                                <h5 class="mt-3 mb-0">
-                                    <?= htmlspecialchars($userInput); ?>
-                                </h5>
+                                <h5 class="mt-3 mb-0"><?= htmlspecialchars($userInput); ?></h5>
 
                             </div>
 
                         </div>
 
                     <?php
-
                     }
-
                     ?>
-
                 </div>
 
             </div>
-
         </div>
 
 
         <!-- Footer -->
-        <div class="text-center mt-5">
-
-            <p class="text-muted">
-                PHP Array Analysis | DFP50193
-            </p>
-
-        </div>
+        <div class="text-center mt-5"><p class="text-muted">PHP Array Analysis | DFP5019 </p></div>
 
     </div>
 
     <!-- Bootstrap JavaScript -->
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
