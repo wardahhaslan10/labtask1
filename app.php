@@ -50,7 +50,6 @@ function calculateArrayStats($userInputs)
     ];
 }
 
-
 // Input array containing at least eight different string values.
 $userInputs = [
     "Apple",
