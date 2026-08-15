@@ -10,10 +10,7 @@ include 'app.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String Array analysis</title>
-    <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 
@@ -96,16 +93,10 @@ include 'app.php';
 
                         <div class="stat-card">
 
-                            <h5>
-                                Total Elements
-                            </h5>
+                            <h5>Total Elements</h5>
 
-                            <p>
-                                <?= $resultArray['totalElements']; ?>
-                            </p>
-
+                            <p><?= $resultArray['totalElements']; ?></p>
                         </div>
-
                     </div>
 
 
@@ -114,13 +105,9 @@ include 'app.php';
 
                         <div class="stat-card">
 
-                            <h5>
-                                Minimum Value
-                            </h5>
+                            <h5>Minimum Value</h5>
 
-                            <p>
-                                <?= htmlspecialchars($resultArray['minimumValue']); ?>
-                            </p>
+                            <p><?= htmlspecialchars($resultArray['minimumValue']); ?></p>
 
                         </div>
 
@@ -132,13 +119,9 @@ include 'app.php';
 
                         <div class="stat-card">
 
-                            <h5>
-                                Maximum Value
-                            </h5>
+                            <h5>Maximum Value</h5>
 
-                            <p>
-                                <?= htmlspecialchars($resultArray['maximumValue']); ?>
-                            </p>
+                            <p><?= htmlspecialchars($resultArray['maximumValue']); ?></p>
 
                         </div>
 
@@ -156,9 +139,7 @@ include 'app.php';
 
             <div class="card-header bg-dark text-white">
 
-                <h2 class="h4 mb-0">
-                    Input Array and Character Length
-                </h2>
+                <h2 class="h4 mb-0">Input Array and Character Length</h2>
 
             </div>
 
@@ -224,12 +205,9 @@ include 'app.php';
 
     </div>
 
-
     <!-- Bootstrap JavaScript -->
     <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
     </script>
-
 </body>
-
 </html>
