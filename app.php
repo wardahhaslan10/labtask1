@@ -62,7 +62,6 @@ $userInputs = [
     "Website"
 ];
 
-
 // Store the associative array returned by the function.
 $resultArray = calculateArrayStats($userInputs);
 ?>
