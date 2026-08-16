@@ -317,7 +317,6 @@ if (isset($_POST['submit'])) {
                         <?php
 
                         foreach ($inputArray as $index => $value) {
-
                         ?>
 
                             <tr>
