@@ -1,358 +1,327 @@
 <?php
 
-// Variable untuk tentukan sama ada result perlu dipaparkan
-$submitted = false;
+include 'app.php';
 
-// Variable kosong
-$inputArray = [];
-$largestCharacters = 0;
-$thirdElementLength = 0;
-$totalElements = 0;
-$minimumValue = "";
-$maximumValue = "";
+$userInputs = [];
+$resultArray = [];
 
-// Bila user tekan Submit
-if (isset($_POST['submit'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // Simpan 8 input user dalam array
-    $inputArray = [
-        $_POST['input1'],
-        $_POST['input2'],
-        $_POST['input3'],
-        $_POST['input4'],
-        $_POST['input5'],
-        $_POST['input6'],
-        $_POST['input7'],
-        $_POST['input8']
+    $userInputs = [
+        $_POST['firstName'] ?? '',
+        $_POST['lastName'] ?? '',
+        $_POST['city'] ?? '',
+        $_POST['country'] ?? '',
+        $_POST['favouriteFood'] ?? '',
+        $_POST['favouriteColor'] ?? '',
+        $_POST['hobby'] ?? '',
+        $_POST['course'] ?? ''
     ];
 
-    // Largest number of characters
-    foreach ($inputArray as $value) {
-
-        $length = strlen($value);
-
-        if ($length > $largestCharacters) {
-            $largestCharacters = $length;
-        }
-    }
-
-    // Character length bagi element ke-3
-    $thirdElementLength = strlen($inputArray[2]);
-
-    // Jumlah element
-    $totalElements = count($inputArray);
-
-    // Minimum value
-    $minimumValue = min($inputArray);
-
-    // Maximum value
-    $maximumValue = max($inputArray);
-
-    // Tukar kepada TRUE supaya result dipaparkan
-    $submitted = true;
+    $resultArray = calculateArrayStats($userInputs);
 }
-
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>String Array Analysis</title>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 
-    <!-- Bootstrap 5.3.3 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"rel="stylesheet">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5 mb-5">
+<div class="container py-5">
 
-    <!-- MAIN CARD -->
+    <div class="text-center mb-4">
 
-    <div class="card shadow">
+        <h1>String Array Analysis</h1>
 
-        <!-- HEADER -->
+        <p class="text-muted">Please enter the following information</p>
 
-        <div class="card-header bg-primary text-white text-center">
+    </div>
 
-            <h2 class="mb-0">String Array Analysis</h2>
+
+    <!-- USER INPUT -->
+
+    <div class="card shadow mb-4">
+
+        <div class="card-header bg-primary text-white">
+
+            <h4 class="mb-0">User Information</h4>
+
         </div>
-
-
-        <!-- BODY -->
 
         <div class="card-body">
 
-            <!-- INPUT FROM USER -->
+            <form method="POST">
 
-            <h4 class="mb-4">Input From User</h4>
+                <div class="row">
+
+                    <!-- First Name -->
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">First Name</label>
+                        <input
+                            type="text"
+                            name="firstName"
+                            class="form-control"
+                            placeholder="Enter your first name"
+                            required>
+
+                    </div>
 
 
-            <form method="POST" action="index.php">
+                    <!-- Last Name -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Last Name</label>
 
-                <!-- INPUT 1 -->
+                        <input
+                            type="text"
+                            name="lastName"
+                            class="form-control"
+                            placeholder="Enter your last name"
+                            required>
 
-                <div class="mb-3">
+                    </div>
 
-                    <label class="form-label">Input 1</label>
 
-                    <input
-                        type="text"
-                        name="input1"
-                        class="form-control"
-                        placeholder="Enter Input 1"
-                        required>
+                    <!-- City -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">City</label>
+                        <input
+                            type="text"
+                            name="city"
+                            class="form-control"
+                            placeholder="Enter your city"
+                            required>
+                    </div>
+
+
+                    <!-- Country -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Country</label>
+
+                        <input
+                            type="text"
+                            name="country"
+                            class="form-control"
+                            placeholder="Enter your country"
+                            required>
+
+                    </div>
+
+
+                    <!-- Favourite Food -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Favourite Food</label>
+                        <input
+                            type="text"
+                            name="favouriteFood"
+                            class="form-control"
+                            placeholder="Enter your favourite food"
+                            required>
+                    </div>
+
+
+                    <!-- Favourite Color -->
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Favourite Color</label>
+                        <input
+                            type="text"
+                            name="favouriteColor"
+                            class="form-control"
+                            placeholder="Enter your favourite color"
+                            required>
+
+                    </div>
+
+
+                    <!-- Hobby -->
+                    <div class="col-md-6 mb-3">
+
+                        <label class="form-label">Hobby</label>
+                        <input
+                            type="text"
+                            name="hobby"
+                            class="form-control"
+                            placeholder="Enter your hobby"
+                            required>
+                    </div>
+
+
+                    <!-- Course -->
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Course</label>
+                        <input
+                            type="text"
+                            name="course"
+                            class="form-control"
+                            placeholder="Enter your course"
+                            required>
+                    </div>
 
                 </div>
 
 
-                <!-- INPUT 2 -->
+                <div class="text-center mt-3">
 
-                <div class="mb-3">
-
-                    <label class="form-label">Input 2</label>
-
-                    <input
-                        type="text"
-                        name="input2"
-                        class="form-control"
-                        placeholder="Enter Input 2"
-                        required>
-
-                </div>
-
-
-                <!-- INPUT 3 -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">Input 3</label>
-
-                    <input
-                        type="text"
-                        name="input3"
-                        class="form-control"
-                        placeholder="Enter Input 3"
-                        required>
-
-                </div>
-
-
-                <!-- INPUT 4 -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">Input 4</label>
-
-                    <input
-                        type="text"
-                        name="input4"
-                        class="form-control"
-                        placeholder="Enter Input 4"
-                        required>
-
-                </div>
-
-
-                <!-- INPUT 5 -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">Input 5</label>
-
-                    <input
-                        type="text"
-                        name="input5"
-                        class="form-control"
-                        placeholder="Enter Input 5"
-                        required>
-                </div>
-
-
-                <!-- INPUT 6 -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">Input 6</label>
-
-                    <input
-                        type="text"
-                        name="input6"
-                        class="form-control"
-                        placeholder="Enter Input 6"
-                        required>
-                </div>
-
-
-                <!-- INPUT 7 -->
-
-                <div class="mb-3">
-
-                    <label class="form-label">Input 7</label>
-
-                    <input
-                        type="text"
-                        name="input7"
-                        class="form-control"
-                        placeholder="Enter Input 7"
-                        required>
-                </div>
-
-
-                <!-- INPUT 8 -->
-
-                <div class="mb-3">
-                    <label class="form-label">Input 8</label>
-
-                    <input
-                        type="text"
-                        name="input8"
-                        class="form-control"
-                        placeholder="Enter Input 8"
-                        required>
-                </div>
-
-
-                <!-- SUBMIT BUTTON -->
-
-                <div class="text-center mt-4">
                     <button
                         type="submit"
-                        name="submit"
                         class="btn btn-primary px-5">
                         Submit
+
                     </button>
 
                 </div>
 
             </form>
 
+        </div>
 
-            <?php if ($submitted == true) { ?>
-
-                <hr class="my-5">
-
-
-                <!-- ARRAY STATISTICS -->
-
-                <h4 class="mb-3">Array Statistics</h4>
-
-                <div class="table-responsive">
-
-                    <table class="table table-bordered">
-
-                        <tr>
-
-                            <th>Largest Characters</th>
-
-                            <td><?php echo $largestCharacters; ?></td>
-
-                        </tr>
-
-                        <tr>
-
-                            <th>3rd Element Length</th>
-
-                            <td><?php echo $thirdElementLength; ?></td>
-
-                        </tr>
+    </div>
 
 
-                        <tr>
-                            <th>Total Elements</th>
+    <?php if (!empty($resultArray)) { ?>
 
-                            <td><?php echo $totalElements; ?></td>
-                        </tr>
+    <!-- RESULT -->
 
+    <div class="card shadow mb-4">
 
-                        <tr>
-                            <th>Minimum Value</th>
+        <div class="card-header bg-success text-white">
 
-                            <td><?php echo htmlspecialchars($minimumValue); ?></td>
+            <h4 class="mb-0">Array Statistics</h4>
 
-                        </tr>
+        </div>
 
+        <div class="card-body">
 
-                        <tr>
+            <div class="row g-3">
 
-                            <th>Maximum Value</th>
+                <div class="col-md-4">
 
-                            <td><?php echo htmlspecialchars($maximumValue); ?></td>
+                    <div class="result-box">
 
-                        </tr>
-                    </table>
+                        <h6>Largest Number of Characters</h6>
+
+                        <h3><?= $resultArray['largestCharacterCount']; ?></h3>
+
+                    </div>
 
                 </div>
 
 
-                <!-- INPUT ARRAY AND CHARACTER LENGTH -->
+                <div class="col-md-4">
 
-                <h4 class="mt-5 mb-3">Input Array and Character Length</h4>
+                    <div class="result-box">
 
+                        <h6>3rd Element Length</h6>
 
-                <div class="table-responsive">
+                        <h3><?= $resultArray['thirdElementLength']; ?></h3>
 
-                    <table class="table table-bordered table-striped">
-
-                        <thead class="table-dark">
-
-                            <tr>
-
-                                <th>Element</th>
-
-                                <th>Input</th>
-
-                                <th>Character Length</th>
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                        <?php
-
-                        foreach ($inputArray as $index => $value) {
-                        ?>
-
-                            <tr>
-
-                                <td><?php echo $index + 1; ?></td>
-
-                                <td><?php echo htmlspecialchars($value); ?></td>
-
-                                <td><?php echo strlen($value); ?></td>
-                            </tr>
-
-                        <?php
-
-                        }
-
-                        ?>
-
-                        </tbody>
-
-                    </table>
+                    </div>
 
                 </div>
 
-            <?php } ?>
+
+                <div class="col-md-4">
+
+                    <div class="result-box">
+
+                        <h6>Total Elements</h6>
+
+                        <h3><?= $resultArray['totalElements']; ?></h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="result-box">
+
+                        <h6>Minimum Value</h6>
+
+                        <h3><?= htmlspecialchars($resultArray['minimumValue']); ?></h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+
+                    <div class="result-box">
+
+                        <h6>Maximum Value</h6>
+
+                        <h3><?= htmlspecialchars($resultArray['maximumValue']); ?></h3>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </div>
 
     </div>
 
+
+    <!-- INPUT ARRAY -->
+
+    <div class="card shadow">
+
+        <div class="card-header bg-dark text-white">
+
+            <h4 class="mb-0">Input Array and Character Length</h4>
+
+        </div>
+
+        <div class="card-body">
+
+            <div class="row g-3">
+
+                <?php foreach ($userInputs as $index => $userInput) { ?>
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="input-box">
+
+                            <span class="badge bg-primary">Element <?= $index + 1; ?></span>
+
+                            <h5 class="mt-3"><?= htmlspecialchars($userInput); ?></h5>
+
+                            <p class="text-muted mb-0">
+
+                                Character Length:
+                                <?= strlen($userInput); ?>
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                <?php } ?>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <?php } ?>
+
 </div>
 
-
-<!-- Bootstrap JavaScript -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
-
 </html>

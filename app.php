@@ -1,46 +1,53 @@
 <!--
 Full Name: Wardah Haslan
-Student Reg. Number: 18DDT23F1099
-Class: DDT7B
-Track & Group: software development
+Student Reg. Number: [Your Registration Number]
+Class: [Your Class]
+Track & Group: [Your Track & Group]
 Course: DFP50193 - Web Programming
 Assessment: Lab Task 1
 Academic Session: Session II : 2025/2026
 -->
 
 <?php
-// Function to calculate all required statistics from the input array.
+
+// Function to calculate statistics from the user input array
 function calculateArrayStats($userInputs)
 {
-    // Find the total number of elements in the array.
+    // Find the total number of elements
     $totalElements = count($userInputs);
 
-    // Find the largest number of characters among all array elements.
+    // Set the largest character count to 0
     $largestCharacterCount = 0;
 
+    // Loop through each value to find the largest character count
     foreach ($userInputs as $userInput) {
+
+        // Count the characters of the current value
         $characterCount = strlen($userInput);
 
+        // Compare with the current largest character count
         if ($characterCount > $largestCharacterCount) {
             $largestCharacterCount = $characterCount;
         }
     }
 
-    // Get the number of characters of the 3rd element.
-    // Array index starts from 0, so the 3rd element has index 2.
+    // Find the character count of the 3rd element
+    // Array index starts from 0, so the 3rd element is index 2
     $thirdElementLength = strlen($userInputs[2]);
 
-    // Sort the array in lexicographical order.
+    // Copy the array before sorting
     $sortedInputs = $userInputs;
+
+    // Sort the values in lexicographical order
     sort($sortedInputs, SORT_STRING);
 
-    // The first value is the minimum value in lexicographical order.
+    // First value after sorting is the minimum value
     $minimumValue = $sortedInputs[0];
 
-    // The last value is the maximum value in lexicographical order.
+    // Last value after sorting is the maximum value
     $maximumValue = $sortedInputs[$totalElements - 1];
 
-    // Return all results as an associative array.
+    // Return the results as an associative array
     return [
         'largestCharacterCount' => $largestCharacterCount,
         'thirdElementLength' => $thirdElementLength,
@@ -50,18 +57,4 @@ function calculateArrayStats($userInputs)
     ];
 }
 
-// Input array containing at least eight different string values.
-$userInputs = [
-    "Apple",
-    "Banana",
-    "Computer",
-    "Database",
-    "Bootstrap",
-    "Programming",
-    "Student",
-    "Website"
-];
-
-// Store the associative array returned by the function.
-$resultArray = calculateArrayStats($userInputs);
 ?>
