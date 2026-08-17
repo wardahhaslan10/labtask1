@@ -29,10 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>String Array Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    
-
 </head>
-
 <body>
 
 <div class="container py-5">
@@ -72,7 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             class="form-control"
                             placeholder="Enter your first name"
                             required>
-
                     </div>
 
 
@@ -86,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             class="form-control"
                             placeholder="Enter your last name"
                             required>
-
                     </div>
 
 
@@ -112,7 +107,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             class="form-control"
                             placeholder="Enter your country"
                             required>
-
                     </div>
 
 
@@ -138,7 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             class="form-control"
                             placeholder="Enter your favourite color"
                             required>
-
                     </div>
 
 
@@ -165,7 +158,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             placeholder="Enter your course"
                             required>
                     </div>
-
                 </div>
 
 
@@ -175,15 +167,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         type="submit"
                         class="btn btn-primary px-5">
                         Submit
-
                     </button>
-
                 </div>
-
             </form>
-
         </div>
-
     </div>
 
 
@@ -299,10 +286,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <h5 class="mt-3"><?= htmlspecialchars($userInput); ?></h5>
 
                             <p class="text-muted mb-0">
-
                                 Character Length:
                                 <?= strlen($userInput); ?>
-
                             </p>
 
                         </div>
@@ -316,10 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
     </div>
-
     <?php } ?>
-
 </div>
-
 </body>
 </html>
