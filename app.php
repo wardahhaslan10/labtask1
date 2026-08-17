@@ -9,7 +9,6 @@ Academic Session: Session II : 2025/2026
 -->
 
 <?php
-
 // Function to calculate statistics from the user input array
 function calculateArrayStats($userInputs)
 {
