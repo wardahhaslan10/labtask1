@@ -55,5 +55,4 @@ function calculateArrayStats($userInputs)
         'maximumValue' => $maximumValue
     ];
 }
-
 ?>
